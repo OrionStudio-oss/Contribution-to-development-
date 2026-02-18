@@ -75,6 +75,24 @@
             box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.08);
             border-color: #a3a3a3;
         }
+        
+        /* Modal Animation */
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-animate {
+            animation: modalFadeIn 0.3s ease-out forwards;
+        }
+        
+        /* Pulse animation for status dot */
+        @keyframes pulse-purple {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .animate-pulse-purple {
+            animation: pulse-purple 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-black selection:text-white">
@@ -115,8 +133,8 @@
         <div class="max-w-7xl mx-auto">
             <div class="max-w-4xl">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-semibold uppercase tracking-wider mb-8">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    Agenda 2024/25 Aberta
+                    <span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse-purple"></span>
+                    Datacenter 3 funcional • 1 projeto em execução
                 </div>
                 <h1 class="text-4xl md:text-7xl font-semibold tracking-tight leading-[1.1] mb-8 text-brand-black">
                     Tecnologia Avançada.<br>
@@ -246,12 +264,15 @@
             <div class="bento-grid">
                 
                 <!-- Card 1: Nebula (Grande Destaque) -->
-                <div class="project-card desktop-col-span-2 bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 flex flex-col justify-between relative overflow-hidden group">
+                <a href="https://orionprototyp.web.app/nebula.html" target="_blank" class="project-card desktop-col-span-2 bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 flex flex-col justify-between relative overflow-hidden group cursor-pointer">
                     <div class="z-10 relative">
                         <div class="w-12 h-12 bg-neutral-100 rounded-xl flex items-center justify-center mb-6">
                             <i class="ph-duotone ph-cube text-2xl text-black"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2">Nebula</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <h3 class="text-2xl font-bold">Nebula</h3>
+                            <i class="ph ph-arrow-up-right text-xl text-neutral-300 group-hover:text-black transition-colors"></i>
+                        </div>
                         <p class="text-brand-gray text-sm md:text-base max-w-md">Sistema de controle de estoque inteligente. Implementado com sucesso na franquia <strong>Subway</strong>.</p>
                         
                         <div class="mt-6 flex gap-2 flex-wrap">
@@ -260,10 +281,10 @@
                         </div>
                     </div>
                     <div class="absolute -right-10 -bottom-10 w-40 h-40 md:w-64 md:h-64 bg-gradient-to-tl from-neutral-100 to-transparent rounded-full opacity-50 group-hover:scale-110 transition-transform duration-500 pointer-events-none"></div>
-                </div>
+                </a>
 
                 <!-- Card 2: Chettgram -->
-                <div class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 flex flex-col justify-between group">
+                <a href="https://chettgram.web.app/index.html" target="_blank" class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 flex flex-col justify-between group cursor-pointer">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
@@ -274,15 +295,18 @@
                         <h3 class="text-xl font-bold mb-2">Chettgram</h3>
                         <p class="text-sm text-brand-gray">Rede social proprietária totalmente online e escalável.</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Card 3: Cardápio Digital -->
-                <div class="project-card desktop-row-span-2 bg-black text-white rounded-3xl p-6 md:p-8 border border-neutral-800 flex flex-col justify-between group">
+                <a href="https://atenscloud.web.app/pedido.html" target="_blank" class="project-card desktop-row-span-2 bg-black text-white rounded-3xl p-6 md:p-8 border border-neutral-800 flex flex-col justify-between group cursor-pointer">
                     <div>
                         <div class="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center mb-6 border border-neutral-700">
                             <i class="ph-duotone ph-qr-code text-2xl text-white"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2">Cardápio Digital</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <h3 class="text-2xl font-bold">Cardápio Digital</h3>
+                            <i class="ph ph-arrow-up-right text-xl text-neutral-400 group-hover:text-white transition-colors"></i>
+                        </div>
                         <p class="text-neutral-400 mb-6 text-sm">Solução de autoatendimento e Design de Interface.</p>
                         
                         <div class="p-4 bg-neutral-900 rounded-2xl border border-neutral-800 mb-4">
@@ -295,33 +319,42 @@
                          <span class="px-3 py-1 bg-neutral-800 rounded-md text-xs font-medium">UX/UI</span>
                          <span class="px-3 py-1 bg-neutral-800 rounded-md text-xs font-medium">Totem</span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Card 4: Routesmart -->
-                <div class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 group">
-                     <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-6">
-                        <i class="ph-duotone ph-airplane-tilt text-2xl text-orange-600"></i>
+                <a href="https://brprojekts.web.app/" target="_blank" class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 group cursor-pointer">
+                     <div class="flex justify-between items-start mb-6">
+                         <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center">
+                            <i class="ph-duotone ph-airplane-tilt text-2xl text-orange-600"></i>
+                        </div>
+                        <i class="ph ph-arrow-up-right text-xl text-neutral-300 group-hover:text-black transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Routesmart</h3>
                     <p class="text-sm text-brand-gray mb-4">Plataforma de inteligência em viagens e reservas.</p>
-                </div>
+                </a>
 
                 <!-- Card 5: 11freela -->
-                <div class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 group">
-                    <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-6">
-                        <i class="ph-duotone ph-handshake text-2xl text-green-600"></i>
+                <a href="https://11freela.online" target="_blank" class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 group cursor-pointer">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center">
+                            <i class="ph-duotone ph-handshake text-2xl text-green-600"></i>
+                       </div>
+                       <i class="ph ph-arrow-up-right text-xl text-neutral-300 group-hover:text-black transition-colors"></i>
                    </div>
                    <h3 class="text-xl font-bold mb-2">11freela</h3>
                    <p class="text-sm text-brand-gray mb-4">Marketplace de serviços conectando freelancers a clientes.</p>
-               </div>
+               </a>
 
                 <!-- Card 6: Quantum -->
-                <div class="project-card desktop-col-span-2 bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 flex flex-col md:flex-row md:items-center justify-between group">
+                <div onclick="openQuantumModal()" class="project-card desktop-col-span-2 bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 flex flex-col md:flex-row md:items-center justify-between group cursor-pointer hover:border-purple-300">
                     <div class="flex-1 mb-4 md:mb-0">
                         <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
                             <i class="ph-duotone ph-chart-polar text-2xl text-purple-600"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Quantum</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <h3 class="text-xl font-bold">Quantum</h3>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Em Desenvolvimento</span>
+                        </div>
                         <p class="text-brand-gray text-sm md:max-w-xs">App Micro SAAS e ERP completo para gestão de pequenas empresas.</p>
                     </div>
                     <div class="hidden md:flex flex-col gap-2 opacity-50">
@@ -331,17 +364,54 @@
                 </div>
 
                 <!-- Card 7: Caf Compras -->
-                <div class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 group">
-                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-6">
-                        <i class="ph-duotone ph-moped text-2xl text-red-600"></i>
+                <a href="https://caf-compras-online.web.app/" target="_blank" class="project-card bg-white rounded-3xl p-6 md:p-8 border border-neutral-200 group cursor-pointer">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                            <i class="ph-duotone ph-moped text-2xl text-red-600"></i>
+                        </div>
+                        <i class="ph ph-arrow-up-right text-xl text-neutral-300 group-hover:text-black transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Caf</h3>
                     <p class="text-sm text-brand-gray">Delivery proprietário multi-lojas estilo iFood.</p>
-                </div>
+                </a>
 
             </div>
         </div>
     </section>
+
+    <!-- Quantum Modal -->
+    <div id="quantumModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-animate bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 rounded-3xl p-8 md:p-12 max-w-md w-full text-white shadow-2xl relative overflow-hidden">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-purple-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl"></div>
+            
+            <button onclick="closeQuantumModal()" class="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
+                <i class="ph ph-x text-xl"></i>
+            </button>
+            
+            <div class="relative z-10 text-center">
+                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                    <i class="ph-duotone ph-rocket-launch text-4xl"></i>
+                </div>
+                
+                <h3 class="text-3xl font-bold mb-4">Quantum</h3>
+                <p class="text-purple-100 mb-8 leading-relaxed">
+                    Estamos construindo algo incrível! O Quantum está em fase final de desenvolvimento e em breve estará disponível.
+                </p>
+                
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <span class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0s"></span>
+                    <span class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                    <span class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+                </div>
+                
+                <button onclick="closeQuantumModal()" class="w-full py-3 bg-white text-purple-700 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
+                    Entendi!
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer id="contact" class="bg-brand-black text-white pt-20 pb-12 px-6">
@@ -393,6 +463,36 @@
             <p>Code & Design by Orion Team.</p>
         </div>
     </footer>
+
+    <script>
+        function openQuantumModal() {
+            const modal = document.getElementById('quantumModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuantumModal() {
+            const modal = document.getElementById('quantumModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('quantumModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuantumModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeQuantumModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
