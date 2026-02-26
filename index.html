@@ -93,6 +93,21 @@
         .animate-pulse-purple {
             animation: pulse-purple 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
+
+        /* Scrollbar for modal */
+        .modal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-black selection:text-white">
@@ -194,7 +209,7 @@
         </div>
     </section>
 
-    <!-- Team Section (NEW) -->
+    <!-- Team Section -->
     <section id="team" class="py-16 px-6 border-t border-brand-border bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="mb-12">
@@ -375,6 +390,26 @@
                     <p class="text-sm text-brand-gray">Delivery proprietário multi-lojas estilo iFood.</p>
                 </a>
 
+                <!-- Card 8: Soluções de Escrita (NEW) -->
+                <div onclick="openWritingModal()" class="project-card bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-6 md:p-8 border border-amber-200 flex flex-col justify-between group cursor-pointer hover:border-amber-400 hover:shadow-lg">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                                <i class="ph-duotone ph-pen-line text-2xl text-amber-600"></i>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-white/60 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="ph ph-arrow-right text-amber-600"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-amber-900">Soluções de Escrita</h3>
+                        <p class="text-sm text-amber-700/70">Redação, diagramação e design editorial profissional.</p>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mt-4">
+                        <span class="px-3 py-1 bg-white/80 rounded-md text-xs font-medium text-amber-700">Copywriting</span>
+                        <span class="px-3 py-1 bg-white/80 rounded-md text-xs font-medium text-amber-700">Editorial</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -409,6 +444,161 @@
                 <button onclick="closeQuantumModal()" class="w-full py-3 bg-white text-purple-700 font-semibold rounded-xl hover:bg-purple-50 transition-colors">
                     Entendi!
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Writing Solutions Modal (NEW) -->
+    <div id="writingModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div class="modal-animate bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl relative">
+            <!-- Close Button -->
+            <button onclick="closeWritingModal()" class="absolute top-4 right-4 z-20 w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors">
+                <i class="ph ph-x text-xl text-neutral-600"></i>
+            </button>
+
+            <!-- Scrollable Content -->
+            <div class="modal-scroll overflow-y-auto max-h-[90vh]">
+                <!-- Hero Section -->
+                <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 p-8 md:p-12">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="ph-duotone ph-pen-nib text-4xl text-amber-600"></i>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Soluções de Escrita</h3>
+                        <p class="text-lg text-amber-700/80 leading-relaxed">
+                            Transformamos ideias em palavras que impactam. Do copywriting persuasivo à diagramação editorial impecável, cada projeto recebe atenção meticulosa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="p-8 md:p-12">
+                    <h4 class="text-xl font-bold text-neutral-900 mb-8 text-center">Ferramentas & Processos</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Affinity Designer -->
+                        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100 hover:border-amber-300 transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                                <i class="ph-duotone ph-paint-brush-broad text-2xl text-white"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-neutral-900 mb-2">Affinity Designer</h5>
+                            <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                                Utilizo para criar layouts editoriais de alta precisão, identidades visuais e materiais gráficos que exigem controle vetorial avançado.
+                            </p>
+                            <ul class="space-y-2 text-xs text-neutral-500">
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Layouts editoriais
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Design de capas
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Materiais promocionais
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- InDesign -->
+                        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100 hover:border-amber-300 transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-4">
+                                <i class="ph-duotone ph-book-open-text text-2xl text-white"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-neutral-900 mb-2">Adobe InDesign</h5>
+                            <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                                Minha ferramenta principal para diagramação profissional de documentos longos, livros, revistas e publicações impressas ou digitais.
+                            </p>
+                            <ul class="space-y-2 text-xs text-neutral-500">
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Diagramação de livros
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Revistas & catálogos
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Prepress para impressão
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Microsoft Word -->
+                        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100 hover:border-amber-300 transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mb-4">
+                                <i class="ph-duotone ph-file-text text-2xl text-white"></i>
+                            </div>
+                            <h5 class="text-lg font-bold text-neutral-900 mb-2">Microsoft Word</h5>
+                            <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                                Utilizo para redação, revisão e formatação de documentos corporativos, artigos, relatórios e conteúdos que exigem compatibilidade universal.
+                            </p>
+                            <ul class="space-y-2 text-xs text-neutral-500">
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Redação técnica
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Documentos corporativos
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ph-fill ph-check-circle text-green-500"></i>
+                                    Revisão e edição
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Services List -->
+                    <div class="mt-12 bg-amber-50 rounded-2xl p-8 border border-amber-100">
+                        <h5 class="text-lg font-bold text-neutral-900 mb-6 text-center">O que posso entregar</h5>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="text-center">
+                                <i class="ph-duotone ph-article text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">Artigos</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="ph-duotone ph-bookmark text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">E-books</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="ph-duotone ph-scroll text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">Revistas</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="ph-duotone ph-certificate text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">Certificados</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="ph-duotone ph-briefcase text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">Propostas</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="ph-duotone ph-megaphone text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">Publicidade</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="ph-duotone ph-newspaper text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">Jornalismo</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="ph-duotone ph-pen-nib text-3xl text-amber-600 mb-2"></i>
+                                <p class="text-sm font-medium text-neutral-700">Copywriting</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="mt-8 text-center">
+                        <a href="https://wa.me/5531995663380" class="inline-flex items-center gap-2 px-8 py-4 bg-amber-600 text-white rounded-xl font-semibold hover:bg-amber-700 transition-colors shadow-lg hover:shadow-xl">
+                            <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                            Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -479,17 +669,38 @@
             document.body.style.overflow = '';
         }
 
-        // Close modal when clicking outside
+        function openWritingModal() {
+            const modal = document.getElementById('writingModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWritingModal() {
+            const modal = document.getElementById('writingModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Close modals when clicking outside
         document.getElementById('quantumModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeQuantumModal();
             }
         });
 
-        // Close modal with Escape key
+        document.getElementById('writingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWritingModal();
+            }
+        });
+
+        // Close modals with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeQuantumModal();
+                closeWritingModal();
             }
         });
     </script>
